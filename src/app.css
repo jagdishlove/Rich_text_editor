@@ -51,15 +51,14 @@ button {
   line-height: 200%;
   border-radius: 3px;
   background-color: #efefef;
-  border:none;
+  border: none;
   cursor: pointer;
-
 }
 
-button:hover{
-  color:white;
+button:hover {
+  color: white;
   background: gray;
-  transition:all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 button.underline {
@@ -91,33 +90,32 @@ html {
   background-color: white;
 }
 
-.input{
+.input {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 
-.input > label{
+.input > label {
   font-size: 20px;
   font-weight: 500;
-  color:white;
-  
+  color: white;
 }
 
-.input >input{
-  width:20rem;
-  height:25px;
-  outline:none;
+.input > input {
+  width: 20rem;
+  height: 25px;
+  outline: none;
   padding: 0 2.5em 0 0.5em;
-  border:1px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 10px;
 }
 
-button.btn{
-  width:70px;
-  font-size:1em;
+button.btn {
+  width: 70px;
+  font-size: 1em;
   font-weight: 500;
   letter-spacing: 1px;
 }

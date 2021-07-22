@@ -6,10 +6,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 export default function App() {
-
-  
-
-
   const [text, setText] = useState("");
   const [post, setPost] = useState("");
   const [editorState, setEditorState] = useState(() =>
@@ -17,19 +13,22 @@ export default function App() {
   );
 
   const initialValues = {
-    email: "j@gamil.com"
+    email: ""
   };
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, { resetForm }) => {
     setText(values.email);
     const v = stateToHTML(editorState.getCurrentContent());
     setPost(v);
+    alert(JSON.stringify(values, null, 2));
+
+    formik.resetForm();
   };
 
   const validationSchema = Yup.object({
     // values.email
     email: Yup.string().email("Invalid email format").required("required")
-    // ,posts: Yup.string().required("required")
+    // ,post: Yup.string().required("required")
   });
 
   //Formik for form managing
@@ -91,6 +90,7 @@ export default function App() {
                 onChange={formik.handleChange}
                 value={formik.values.email}
                 placeholder="write email..."
+                onReset={formik.handleReset}
               />
               {formik.touched.email && formik.errors.email ? (
                 <div style={{ color: "red", textAlign: "center" }}>
@@ -123,9 +123,7 @@ export default function App() {
               handleKeyCommand={handleKeyCommand}
               onChange={onEditorChange}
               // onBlur={formik.handleBlur}
-              type="text"
-              name="posts"
-              id="posts"
+
               value={formik.values.posts}
               placeholder="write message..."
             />
